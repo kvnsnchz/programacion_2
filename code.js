@@ -1,6 +1,7 @@
-$("input").click(function(){
-	console.log("plomo");
-	$("this").attr('value','x');
-	
-});
+function presiono(input,i,j){
+	$(input).attr('value','x');
+	var x= "#matriz\\["+$(i)+"\\]\\["+$(j)+"\\]";
+	$(x).attr('value','x');
+	//$("#formulario").submit();
+}
 

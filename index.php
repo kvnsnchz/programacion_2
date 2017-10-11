@@ -8,17 +8,22 @@
 </head>
 <body>
 	<div>
-		<form method="post">
+		<form id= "formulario" method="post">
 			<?php 
 				for ($i=0; $i <3 ; $i++) { 
 					for ($j=0; $j < 3; $j++) { 
-
-						echo "<input id= 'matriz'type='button' name='matriz[".$i."][".$j."]' value='' style= 'background-color:rgb(0,".($i*$j).",".((($i*$j)+1+$i+$j)*60).") onclick='presiono(this)''/>";
+						$value = isset($_POST['matriz'][$i][$j])?$_POST['matriz'][$i][$j]:' ';
+						$id = "matriz[".$i."][".$j."]";
+						echo "<input id= '".$id."'type='hidden' name='matriz[".$i."][".$j."]' value='".$value."' />";
+						echo "<input id= 'matriz'type='button'  value='".$value."' style= 'background-color:rgb(0,".($i*$j).",".((($i*$j)+1+$i+$j)*60).")' onclick = 'presiono(this,".$i.",".$j.")'; />";
+						
 					}
 					echo "<br/>";
 				}
 			?>
-			<input type="submit" name="bu"value="enviar" onclick="presiono(this)" />
+			<input type="button" name="be"value="ja" />
+			<input type="submit" name="bu"value="enviar" />
+
 		</form >
 		
 	</div>
