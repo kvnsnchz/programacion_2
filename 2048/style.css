@@ -1,0 +1,15 @@
+#div_tabl{
+	width: 220px;
+	height: 220px;
+	background-color: blue;
+}
+table{
+	position: relative;
+	margin-left: auto;
+	margin-right: auto;
+}
+td{
+	width: 50px;
+	height: 50px;
+	text-align: center;
+}

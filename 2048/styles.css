@@ -1,0 +1,21 @@
+body{
+	text-align: center;
+}
+#div_tabl{
+
+	width: 220px;
+	height: 220px;
+	background-color: rgb(150,130,130);
+	margin-left: auto;
+	margin-right: auto;
+}
+table{
+	position: relative;
+	margin-left: auto;
+	margin-right: auto;
+}
+td{
+	width: 50px;
+	height: 50px;
+	text-align: center;
+}

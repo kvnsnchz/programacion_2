@@ -1,23 +1,35 @@
+<?php
+	session_start();
+?>
 <html>
 <head>
 	<title>ROTATE</title>
 </head>
 <body>
 	<div>
-		<h1>WELCOME TO ROTATE</h1>
-		<h2>please choose the dimensions of the matrix</h2>
+		<h1>BIENVENIDO A ROTACION</h1>
+		<h2>Por favor introduzca los valores de la matriz</h2>
 	</div>
 	<div>
-		<form id="form_pedir_Dimen_Matriz" method="post" action="dimensiones_sub_matriz.php">
-			<label for="dimensiones">dimensiones</label><br/>
-			<label for="3x3">3x3</label>
-			<input  type="radio" name="dimensiones" value="3x3"/>
-			<label for="6x6">6x6</label>
-			<input  type="radio" name="dimensiones" value="6x6"/>
-			<label for="9x9">9x9</label>
-			<input  type="radio" name="dimensiones" value="9x9"/><br/>
-			<input id="boton_listo" type="button" value="Listo"/>			
+		<form id="form_pedir_Dimen_Matriz" method="post" >
+			<label for="dimension_m">Dimension Matriz</label>
+			<input  type="text" name="dimension_m"/><br/>
+			<label for="dimension_subm">Dimension sub-Matriz (n/2 + 1)</label>
+			<input  type="text" name="dimension_subm"/>
+			<input id="boton_listo" type="submit" name="boton_listo" value="Listo"/>			
 		</form>
+		<?php
+			if(isset($_POST["boton_listo"])){
+				if( is_numeric($_POST["dimension_m"]) && is_numeric($_POST["dimension_subm"])&& $_POST["dimension_m"] >= 3 && $_POST["dimension_m"] <= 20 && $_POST["dimension_subm"] <= ($_POST["dimension_m"]/2)+1){
+					$_SESSION["n"] = $_POST["dimension_m"];
+					$_SESSION["sub_n"] = $_POST["dimension_subm"];
+					header("location: juego.php");
+				}
+				else{
+					echo "<script>alert('valores invalidos')</script>";
+				}
+			}
+		?>
 	</div>
 </body>
 </html>
