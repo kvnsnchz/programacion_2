@@ -18,11 +18,11 @@
 		<form method="post">
 			<?php 
 				do {
-					$pos_i = random_int(0, 3);
-					$pos_j = random_int(0, 3);
+					$pos_i = rand(0,3);
+					$pos_j = rand(0, 3);
 					$val_ale = isset($_POST["matriz"][$pos_i][$pos_j])?$_POST["matriz"][$pos_i][$pos_j]:(int)("0");
 				} while ( $val_ale!=0);
-				$_POST["matriz"][$pos_i][$pos_j] = random_int(1,2)*2;
+				$_POST["matriz"][$pos_i][$pos_j] = rand(1,2)*2;
 					
 				echo "<table>";
 				for ($i=0; $i < 4; $i++) { 
